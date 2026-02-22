@@ -239,6 +239,16 @@ main {
     border-left: 1px solid #2D6283;
 }
 
+/* Убираем "забор" вокруг активной карточки:
+   нет линии слева у активной и справа от активной (линия у следующей карточки) */
+.programm__grid .programm__stage.is-active {
+    border-left-color: transparent;
+}
+
+.programm__grid .programm__stage.is-active + .programm__stage {
+    border-left-color: transparent;
+}
+
 .programm__stage-compact {
     position: relative;
     z-index: 1;
@@ -411,6 +421,100 @@ main {
 
 .programm__stage:last-child .programm__number {
     right: -14px;
+}
+
+.programm__grid .programm__stage {
+    min-width: 0;
+    transition: opacity 0.36s ease, transform 0.36s ease, padding 0.36s ease;
+}
+
+.programm__grid .programm__stage-full {
+    display: none;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.36s ease, transform 0.36s ease;
+}
+
+.programm__grid .programm__stage-compact {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.programm__grid .programm__stage.is-active {
+    opacity: 1;
+}
+
+.programm__grid .programm__stage.is-active .programm__stage-full {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: programmStageReveal 0.36s ease both;
+}
+
+.programm__grid .programm__stage.is-active .programm__stage-compact {
+    display: none;
+}
+
+.programm__grid.is-transitioning .programm__stage.is-active .programm__stage-full {
+    display: none;
+}
+
+.programm__grid.is-transitioning .programm__stage.is-active .programm__stage-compact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+}
+
+.programm__grid.is-preparing,
+.programm__grid.is-preparing .programm__stage,
+.programm__grid.is-preparing .programm__stage-full,
+.programm__grid.is-preparing .programm__stage-compact {
+    transition: none !important;
+    animation: none !important;
+}
+
+.programm__grid .programm__stage.is-measuring .programm__stage-full {
+    display: block;
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: none;
+}
+
+@media (min-width: 1321px) {
+    .programm__grid.is-active-0 {
+        grid-template-columns: 2.2fr 1fr 1fr 1fr;
+    }
+
+    .programm__grid.is-active-1 {
+        grid-template-columns: 1fr 2.2fr 1fr 1fr;
+    }
+
+    .programm__grid.is-active-2 {
+        grid-template-columns: 1fr 1fr 2.2fr 1fr;
+    }
+
+    .programm__grid.is-active-3 {
+        grid-template-columns: 1fr 1fr 1fr 2.2fr;
+    }
+}
+
+.programm__grid {
+    transition: grid-template-columns 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes programmStageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .format {
