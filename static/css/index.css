@@ -877,6 +877,7 @@ footer img {
         margin: 0 auto;
         border-radius: 999px;
         background-color: #F8FBFD;
+        box-shadow: none;
         display: grid;
         grid-template-columns: 1fr 1fr;
         overflow: hidden;
