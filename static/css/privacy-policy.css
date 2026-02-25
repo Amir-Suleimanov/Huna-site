@@ -1,0 +1,305 @@
+@font-face {
+    font-family: Geist;
+    src: url("../fonts/Geist-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Onest;
+    src: url("../fonts/Onest-VariableFont_wght.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #F4F7FA;
+    color: #17374A;
+    font-family: Onest, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+menu, ol, ul {
+    list-style: none;
+}
+
+.policy-header {
+    background: #0E2432 url("../img/bg-simbols.png") center / cover no-repeat;
+    border-radius: 0 0 100px 100px;
+}
+
+.policy-header__inner {
+    max-width: none;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 52px 36px 52px 95px;
+}
+
+.policy-logo {
+    width: 100px;
+    height: 86px;
+}
+
+.policy-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 99px;
+    font-family: Geist, Arial, sans-serif;
+    font-size: 24px;
+}
+
+.policy-menu a {
+    color: #F0F0F0;
+}
+
+.policy-main {
+    padding: 80px 34px 0;
+}
+
+.policy {
+    width: 100%;
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    font-family: Geist;
+}
+
+.policy h1 {
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    color: #0F3349;
+}
+
+.policy .sub {
+    margin-bottom: 20px;
+    color: #6E8390;
+    font-size: 16px;
+}
+
+.policy h2 {
+    margin-top: 26px;
+    margin-bottom: 8px;
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #17374A;
+}
+
+.policy p,
+.policy li {
+    font-weight: 500;
+    font-size: 18px;
+    color: #282A2B;
+}
+
+.policy ul {
+    padding-left: 22px;
+}
+
+.policy li {
+    list-style: disc;
+    margin: 6px 0;
+}
+
+.policy p {
+    margin: 8px 0;
+}
+
+.policy a {
+    color: #1d455c;
+}
+
+footer {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    margin-top: 120px;
+    padding: 72px 70px;
+    border-radius: 70px 70px 0 0;
+    background-color: #122B3A;
+    color: #F0F0F0;
+    font-family: Geist, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 44px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: -0.06em;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, #A6DCFF 0%, #282A2B 100%);
+    filter: blur(120px);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+footer > * {
+    position: relative;
+    z-index: 1;
+}
+
+.footer__refs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 451px;
+}
+
+.footer-social {
+    align-items: flex-end;
+}
+
+.footer-logo {
+    height: 173px;
+    filter: drop-shadow(0 0 30px rgba(102, 189, 255, 0.28));
+}
+
+.footer__refs a {
+    color: #F0F0F0;
+}
+
+@media (max-width: 390px) {
+    .policy-header {
+        width: 358px;
+        height: 140px;
+        margin: 16px auto 0;
+        border-radius: 30px 0 30px 30px;
+        background:
+            url("../img/bg-simbols.png") center / cover no-repeat,
+            url("../img/bg-adaptive-home.svg") center / cover no-repeat;
+    }
+
+    .policy-header__inner {
+        display: flex;
+        align-items: normal;
+        justify-content: flex-start;
+        padding: 0;
+    }
+
+    .policy-logo {
+        width: 42px;
+        height: 46px;
+        margin: 14px 0 0 22px;
+    }
+
+    .policy-menu {
+        display: none;
+    }
+
+    .policy-main {
+        padding: 40px 16px 0;
+    }
+
+    .policy {
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .policy h1 {
+        font-size: 22px;
+    }
+
+    .policy h2 {
+        font-size: 18px;
+    }
+
+    .policy p,
+    .policy li,
+    .policy .sub {
+        font-size: 14px;
+    }
+
+    footer {
+        margin-top: 80px;
+        padding: 25px 17px 20px 17px;
+        border-radius: 0;
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        grid-template-areas:
+            "logo info"
+            "social social";
+        align-items: start;
+        letter-spacing: normal;
+        background-color: #142C3C;
+    }
+
+    footer .footer-logo {
+        grid-area: logo;
+        width: 100px;
+        height: 107px;
+        justify-self: start;
+        align-self: start;
+    }
+
+    .footer__refs {
+        width: 356px;
+        max-width: 100%;
+        gap: 14px;
+    }
+
+    .footer-info {
+        grid-area: info;
+        width: 200px;
+        align-items: flex-end;
+        justify-self: end;
+    }
+
+    .footer-social {
+        grid-area: social;
+        width: 356px;
+        max-width: 100%;
+        margin: 20px 0 0;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 6px;
+    }
+
+    footer a {
+        display: block;
+        font-size: 12px;
+        line-height: 1.2;
+        text-align: right;
+        letter-spacing: normal;
+    }
+
+    .footer-info a {
+        text-align: right;
+    }
+
+    .footer-social a {
+        text-align: center;
+    }
+}
