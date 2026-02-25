@@ -2,7 +2,7 @@
     var PROGRAM_CONTAINER_SELECTOR = ".programm__grid";
     var STAGE_SELECTOR = ".programm__stage";
     var STAGE_HEADER_SELECTOR = ".programm__stage-compact";
-    var isTouchMode = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    var isMobileLayout = window.matchMedia("(max-width: 390px)").matches;
 
     function initProgramAccordion(container) {
         var stages = Array.prototype.slice.call(container.querySelectorAll(STAGE_SELECTOR));
@@ -83,16 +83,18 @@
             stage.setAttribute("tabindex", "0");
             stage.setAttribute("aria-expanded", "false");
 
-            if (isTouchMode) {
-                var clickTarget = stage.querySelector(STAGE_HEADER_SELECTOR) || stage;
-                clickTarget.addEventListener("click", function () {
-                    setActive(index, false);
-                });
-            } else {
-                stage.addEventListener("mouseenter", function () {
-                    setActive(index, false);
-                });
+            if (isMobileLayout) {
+                return;
             }
+
+            var clickTarget = stage.querySelector(STAGE_HEADER_SELECTOR) || stage;
+            clickTarget.addEventListener("click", function () {
+                setActive(index, false);
+            });
+
+            stage.addEventListener("mouseenter", function () {
+                setActive(index, false);
+            });
 
             stage.addEventListener("keydown", function (event) {
                 if (event.key === "Enter" || event.key === " ") {
@@ -102,7 +104,7 @@
             });
         });
 
-        if (!isTouchMode) {
+        if (!isMobileLayout) {
             container.addEventListener("mouseleave", function () {
                 resetToDefault(false);
             });
