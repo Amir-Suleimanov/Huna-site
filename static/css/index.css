@@ -69,7 +69,6 @@ header {
     display: flex;
     flex-direction: row;
     gap: 5.16vw;
-    /* width: 674px; */
     font-family: Geist;
     font-size: 1.25vw;
 }
@@ -301,7 +300,7 @@ main {
 
 .more__item img {
     display: block;
-    width: 100px;
+    width: 5.2vw;
     height: 9.57vh;
     padding: 1.91vh 0.9375vw;
     flex-shrink: 0;
@@ -350,7 +349,7 @@ main {
 .courses__item a {
     margin-top: auto;
     align-self: flex-end;
-    padding: 2.4vh 87px;
+    padding: 2.4vh 4.53vw;
     font-family: Geist;
     font-size: 1.5625vw;
     font-weight: bold;
